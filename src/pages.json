@@ -1,9 +1,22 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
-			"path": "pages/index/index",
+			"path": "pages/hot/hot",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "热门"
+			}
+		},
+		{
+			"path": "pages/hot-video/hot-video",
+			"style": {
+				"navigationBarTitleText": "热门视频"
+			}
+		},
+		{
+
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "我的"
 			}
 		}
 	],
@@ -12,5 +25,29 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#777777",
+		"selectedColor": "#333333",
+		"list": [
+			{
+				"pagePath": "pages/hot/hot",
+				"text": "热门",
+				"iconPath": "static/images/tab-icons/hot.png",
+				"selectedIconPath": "static/images/tab-icons/hot-active.png"
+			},
+			{
+				"pagePath": "pages/hot-video/hot-video",
+				"text": "热门视频",
+				"iconPath": "static/images/tab-icons/hot-video.png",
+				"selectedIconPath": "static/images/tab-icons/hot-video-active.png"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的",
+				"iconPath": "static/images/tab-icons/my.png",
+				"selectedIconPath": "static/images/tab-icons/my-active.png"
+			}
+		]
 	}
 }
