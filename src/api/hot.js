@@ -10,3 +10,19 @@ export function getHotList(type) {
     },
   });
 }
+export function getDefaultText() {
+  return request({
+    url: '/search/default-text',
+  });
+}
+export function getSearchHot() {
+  return request({
+    url: '/search/hot-list',
+  });
+}
+export function getSearchResult(data) {
+  return request({
+    url: '/search',
+    data,
+  });
+}

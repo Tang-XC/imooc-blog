@@ -123,7 +123,6 @@ export default {
     },
     defaultIndex: {
       handler(val) {
-        console.log('defaultIndex', val);
         this.activeIndex = val;
         this.tabToIndex();
       },

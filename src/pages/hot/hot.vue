@@ -6,7 +6,7 @@
       </view>
       <text>iMooc Blog</text>
     </view>
-    <view>
+    <view @click="toSearch">
       <search />
     </view>
     <view style="margin-bottom: 12px" class="tab-sticky">
@@ -106,6 +106,11 @@ export default {
     },
     handleSwiperChange(e) {
       this.currentIndex = e.detail.current;
+    },
+    toSearch() {
+      uni.navigateTo({
+        url: '/subpkg/pages/search-blog/search-blog',
+      });
     },
   },
   watch: {
