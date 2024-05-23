@@ -46,17 +46,17 @@ export default {
 .search-hot-item {
   display: flex;
   align-items: center;
-  margin: 4px 0;
+  margin: 8px 0;
 }
 .search-ranking {
   position: relative;
   width: 20px;
   height: 20px;
-  margin-right: 4px;
+  margin-right: 8px;
 }
 .search-hotIcon {
   width: 20px;
   height: 20px;
-  margin-left: 4px;
+  margin-left: 8px;
 }
 </style>

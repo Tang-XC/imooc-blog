@@ -71,9 +71,14 @@ export default {
   data: () => ({
     searchResult: [],
     page: 1,
+    isInit: true,
+    mescroll: null,
   }),
   created() {
     this.getSearchResultData();
+  },
+  mounted() {
+    this.mescroll = this.$refs.mescrollRef.mescroll;
   },
   mixins: [MescrollMixin],
   methods: {
@@ -83,18 +88,37 @@ export default {
         q: this.searchValue,
         p: this.page,
       }).then((res) => {
-        this.searchResult = res.data.list.map((item) => {
+        const result = res.data.list.map((item) => {
           item.title = item.title.replace(
             this.searchValue,
             `<span style="color:orange;padding:0px 4px">${this.searchValue}</span>`
           );
           return item;
         });
+        if (this.page === 1) {
+          this.searchResult = result;
+        } else {
+          this.searchResult = [...this.searchResult, ...result];
+        }
+        this.isInit = false;
+        this.mescroll.endSuccess();
       });
     },
-    mescrollInit() {},
-    downCallback() {},
-    upCallback() {},
+    mescrollInit() {
+      this.getSearchResultData();
+    },
+    downCallback() {
+      if (this.isInit) return;
+      this.page = 1;
+      this.getSearchResultData();
+      this.mescroll.endSuccess();
+    },
+    upCallback() {
+      if (this.isInit) return;
+      this.page++;
+      this.getSearchResultData();
+      this.mescroll.endSuccess();
+    },
   },
 };
 </script>

@@ -9,6 +9,7 @@
           backgroundColor: '#f1f0f3',
         }"
         @confirm="onSearchConfirm"
+        @cancel="onCancel"
       />
     </view>
     <view class="search-result-box" v-if="isShowResult">
@@ -79,7 +80,6 @@ export default {
     deleteSearchHistory(val) {
       this.searchHistory.splice(this.searchHistory.indexOf(val), 1);
     },
-
     onClearHistory() {
       uni.showModal({
         title: '提示',
@@ -91,6 +91,9 @@ export default {
           }
         },
       });
+    },
+    onCancel() {
+      this.isShowResult = false;
     },
   },
   watch: {

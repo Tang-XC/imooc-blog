@@ -6,6 +6,8 @@
       :bgColor="config.backgroundColor"
       :placeholder="placeholder"
       :value="value"
+      radius="20"
+      cancelText="返回"
       @confirm="onConfirm"
       @cancel="onCancel"
       @focus="onFocus"
@@ -55,7 +57,7 @@ export default {
       this.$emit('focus', this.value);
     },
     onBlur() {
-      this.$emit('focus', this.value);
+      this.$emit('blur', this.value);
     },
     onInput(val) {
       this.$emit('input', val);
@@ -64,10 +66,10 @@ export default {
       this.$emit('confirm', this.value);
     },
     onCancel(e) {
-      this.$emit('focus', this.value);
+      this.$emit('cancel', this.value);
     },
     onClear(e) {
-      this.$emit('focus', this.value);
+      this.$emit('clear', this.value);
     },
   },
 };
@@ -78,7 +80,6 @@ export default {
   align-items: center;
   padding: 4px 8px;
   border: 1px solid #ccc;
-  border-radius: 40px;
 }
 .search-icon {
   width: 30px;
