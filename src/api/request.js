@@ -25,6 +25,9 @@ const request = ({ url, data, method }) => {
       fail: (error) => {
         reject(error);
       },
+      complete: () => {
+        uni.hideLoading();
+      },
     });
   });
 };

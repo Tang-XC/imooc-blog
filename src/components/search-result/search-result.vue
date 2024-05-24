@@ -2,12 +2,16 @@
   <view class="search-result">
     <mescroll-body
       ref="mescrollRef"
+      :up="{ auto: false }"
+      :down="{
+        auto: false,
+      }"
       @init="mescrollInit"
       @down="downCallback"
       @up="upCallback"
     >
       <block v-for="(item, index) in searchResult" :key="index">
-        <view class="search-result-item">
+        <view class="search-result-item" @click="toDetail(item)">
           <view class="item-title">
             <view v-html="item.title"></view>
           </view>
@@ -118,6 +122,12 @@ export default {
       this.page++;
       this.getSearchResultData();
       this.mescroll.endSuccess();
+    },
+    toDetail(item) {
+      uni.navigateTo({
+        url: `/subpkg/pages/blog-detail/blog-detail?author=${item.author}&articleId=${item.id}`,
+        animationType: 'zoom-out',
+      });
     },
   },
 };

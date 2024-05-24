@@ -36,6 +36,7 @@
               :key="index"
               :data="item"
               :ranking="index + 1"
+              @click="toDetail(item)"
             />
           </block>
         </view>
@@ -110,6 +111,11 @@ export default {
     toSearch() {
       uni.navigateTo({
         url: '/subpkg/pages/search-blog/search-blog',
+      });
+    },
+    toDetail(item) {
+      uni.navigateTo({
+        url: `/subpkg/pages/blog-detail/blog-detail?author=${item.user_name}&articleId=${item.id}`,
       });
     },
   },

@@ -1,5 +1,5 @@
 <template>
-  <view class="listItem">
+  <view class="listItem" @click="onClick">
     <view class="item-left">
       <image class="img" :src="getRankingBg"></image>
       <text class="ranking" v-if="ranking <= 3">{{ ranking }}</text>
@@ -37,6 +37,11 @@ export default {
         return require(`@/static/images/ranking-${this.ranking}.png`);
       }
       return require(`@/static/images/ranking-other.png`);
+    },
+  },
+  methods: {
+    onClick() {
+      this.$emit('click');
     },
   },
 };

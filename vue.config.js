@@ -1,3 +1,3 @@
 module.exports = {
-  transpileDependencies: ['@dcloudio/uni-ui', 'mescroll-uni'],
+  transpileDependencies: ['@dcloudio/uni-ui', 'mescroll-uni', 'mp-html'],
 };
