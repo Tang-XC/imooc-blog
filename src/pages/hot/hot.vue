@@ -146,8 +146,12 @@ export default {
 }
 .tab-sticky {
   position: sticky;
-  top: 0;
+
   z-index: 99;
   background-color: $uni-bg-color;
+
+  /* #ifdef H5 */
+  top: 44px;
+  /* #endif */
 }
 </style>

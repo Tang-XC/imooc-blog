@@ -4,6 +4,7 @@ import store from './store';
 import MescrollBody from 'mescroll-uni/mescroll-body.vue';
 import MescrollUni from 'mescroll-uni/mescroll-uni.vue';
 import mpHtml from 'mp-html/dist/uni-app/components/mp-html/mp-html';
+import '@/style/blog-detail.scss';
 
 import './uni.promisify.adaptor';
 import '@/style/global.scss';
